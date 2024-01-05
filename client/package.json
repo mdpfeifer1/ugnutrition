@@ -1,5 +1,5 @@
 {
-  "name": "ugnutrition",
+  "name": "vite-project",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,21 +10,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.5.1",
-    "@fortawesome/free-brands-svg-icons": "^6.5.1",
-    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@apollo/client": "^3.7.14",
+    "@stripe/stripe-js": "^2.2.0",
+    "axios": "^1.6.2",
+    "bootstrap": "^5.3.2",
+    "framer-motion": "^10.16.14",
+    "graphql": "^16.6.0",
+    "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
-    "react-router-dom": "^6.19.0",
+    "react-modal": "^3.16.1",
+    "react-router-dom": "^6.20.1",
+    "react-slick": "^0.29.0",
     "react-type-animation": "^3.2.0",
-    "@apollo/server": "^4.7.1",
-    "bcrypt": "^4.0.1",
-    "dotenv": "^16.3.1",
-    "express": "^4.17.2",
-    "graphql": "^16.6.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^7.0.2"
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
@@ -40,6 +41,5 @@
     "prettier-plugin-tailwindcss": "^0.5.7",
     "tailwindcss": "^3.3.5",
     "vite": "^5.0.0"
-    
   }
 }
