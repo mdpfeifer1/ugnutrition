@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 
@@ -19,7 +19,7 @@ function NavTabs() {
       repeat: 0,
       yoyo: true,
       ease: "power1.inOut",
-      
+
     });
 
     // Animate the barbell
@@ -32,11 +32,11 @@ function NavTabs() {
   const currentPage = useLocation().pathname;
   const [state, dispatch] = useStoreContext();
   return (
-    <section className="bg-[#000000] flex justify-between items-center text-white border-b-4">
+    <section className="bg-[#000000] flex justify-between items-center text-white mb-1">
       <div className="logo">
-      <img id="mainLogo" className='max-h-[100px] max-w-[200px]' src={mainLogo} alt="Main Logo" />
-  <img id="logoJaw" className='logo-jaw' src={Jaw} alt="Jaw" />
-  <img id="logoBarbell" className='logo-barbell' src={Barbell} alt="Barbell" />
+        <img id="mainLogo" className='max-h-[100px] max-w-[200px]' src={mainLogo} alt="Main Logo" />
+        <img id="logoJaw" className='logo-jaw' src={Jaw} alt="Jaw" />
+        <img id="logoBarbell" className='logo-barbell' src={Barbell} alt="Barbell" />
       </div>
 
       <ul className="flex items-center space-x-12 mr-5">
@@ -77,14 +77,14 @@ function NavTabs() {
         </li>
 
 
-        <li className="nav-item mt-1 ">
-  <Link
-    to="/Cart" // Fix: add the correct route
-    className={`hover:text-gray-300 ${currentPage === '/Cart' ? 'font-bold' : ''} `}
-  >
-    Cart
-  </Link>
-</li>
+        <li className="nav-item mt-1 pr-5">
+          <Link
+            to="/Cart" // Fix: add the correct route
+            className={`hover:text-gray-300 ${currentPage === '/Cart' ? 'font-bold' : ''} `}
+          >
+            Cart
+          </Link>
+        </li>
       </ul>
     </section>
   );
