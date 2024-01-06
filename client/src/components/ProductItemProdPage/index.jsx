@@ -47,7 +47,7 @@ function ProductItemProdPage(item) {
   return (
     
     <div className="mt-5">
-      <div key={_id} className="bg-[--Navy] p-6 rounded-lg shadow-md border-4 border-white  flex-col justify-center max-w-[300px] mx-2 my-8">
+      <div key={_id} className="bg-[#a22727] p-6 rounded-lg shadow-md border-4 border-black  flex-col justify-center max-w-[300px] mx-2 my-8 relative">
         <h4 className="text-black pb-3 h-16 overflow-hidden">
           {description} <br />
           <span style={{ fontSize: '1rem' }}>
@@ -57,25 +57,26 @@ function ProductItemProdPage(item) {
   
         <div className="mb-4" style={{ marginTop: '-110px' }}>
           <img
-            className="border-4 border-[--Navy] w-full h-40 object-cover object-center rounded-xl"
+            className="border-4 border-[--black] w-full h-40 object-cover object-center rounded-xl"
             src={image}
             alt={`Product ${_id}`}
           />
         </div>
   
         <h3 className="font-bold text-lg text-center font-serif text-white">{name}</h3>
-        <p className="text-white">{details}</p>
-        <div className="font-serif mt-2 text-white">{quantity} {pluralize("item", quantity)} in stock</div>
+      <p className="text-center text-white">{details}</p>
+
+      <div className="flex justify-center items-center mt-2 text-white font-serif">
+        <span className="mr-2">${price}</span>
         <Link
-          className="btn btn-primary btn-block text-white btn-squared underline max-w-[90px]"
+          className="btn btn-primary text-white btn-squared underline max-w-[90px]"
           to={`/products/${_id}`}
         >
-          View Details  
+          View Details
         </Link>
-        
-        <span className="text-white font-serif max-w-[90px]">&nbsp;&nbsp;&nbsp;${price}</span>
+      </div>
   
-         <button onClick={addToCart} className="btn btn-primary border-2 border-white btn-block btn-squared bg-black text-white rounded-2xl max-w-[150px] min-w-[130px] mx-auto mt-5 hover:min-w-[132px] hover:bg-[--Gold] hover:text-black hover:font-semibold">
+         <button onClick={addToCart} className="btn btn-primary border-2 border-white btn-block btn-squared bg-black text-white text-center rounded-2xl max-w-[150px] min-w-[130px] mx-auto mt-5 hover:min-w-[132px] hover:bg-[--Gold] hover:text-black hover:font-semibold flex justify-center items-center">
           Add to cart
         </button>
       </div>
