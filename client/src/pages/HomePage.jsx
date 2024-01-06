@@ -167,16 +167,7 @@ const Main = () => {
         <motion.a href="/SignUp" className="inline-block bg-white text-[#a22727] px-8 py-3 rounded-lg text-lg font-semibold shadow-lg" variants={buttonVariants} whileHover="hover">Get Started</motion.a>
       </motion.div>
 
-      {/* Social Media Links */}
-      <motion.div className="py-8 bg-black" variants={fadeIn}>
-        <div className="container mx-auto flex justify-center">
-          {[FaInstagram, FaFacebook, FaGithub, FaLinkedin].map((Icon, index) => (
-            <motion.a key={index} href="#" className="text-2xl mx-4 text-white hover:text-gray-300" variants={hoverBounce}>
-              <Icon />
-            </motion.a>
-          ))}
-        </div>
-      </motion.div>
+
     </div>
   );
 };

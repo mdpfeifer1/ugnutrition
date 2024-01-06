@@ -14,7 +14,32 @@
     background-position: center;
   }
   
-  .menuImg {
-    opacity: 35%;
-    
+
+
+  .card-front:hover {
+    transform: scale(1.03);
   }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateX(0);
+    }
+    40% {
+      transform: translateX(-30px);
+    }
+    60% {
+      transform: translateX(-15px);
+    }
+  }
+  
+  .bounce {
+    animation: bounce 2s infinite;
+  }
+  
+  .arrow {
+    rotate: 90deg;
+    max-height: 150px; /* Adjust the size as needed */
+    width: auto; /* Maintain aspect ratio */
+    cursor: pointer; /* Suggests interactivity */
+  }
+  
