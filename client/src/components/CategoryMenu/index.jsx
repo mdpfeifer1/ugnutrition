@@ -42,17 +42,18 @@ function CategoryMenu() {
   };
 
 return (
+
   <div className='flex flex-col items-center justify-center mt-2'>
-    {/* <h2 className='my-6 text-center text-4xl font-serif'>Choose a Category:</h2> */}
+    <h2 className='my-6 text- text-4xl font-sedgwick'>Products</h2>
     <div className='flex items-center space-x-4'>
     <button
-      className=' font-serif mt-2 text-xl font-semibold px-4 border-4 border-black bg-[#a22727] text-white  rounded-md '
+      className='font-philosopher mt-2 text-xl font-semibold px-4 border-black hover:border-b hover:border-gray-600'
       onClick={() => { handleClick('') }}
     >
       Apparel
     </button>
     <button
-      className=' font-serif mt-2 text-xl font-semibold px-4 border-4 border-black bg-[#a22727] text-white  rounded-md '
+      className='font- mt-2 text-xl font-semibold px-4 border-black hover:border-b hover:border-gray-600'
       onClick={() => { handleClick('') }}
     >
       Supplements
