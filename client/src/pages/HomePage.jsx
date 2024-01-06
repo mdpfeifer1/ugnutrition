@@ -8,7 +8,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Cart from '../components/Cart';
 
-import Carousel1 from '../assets/images/undergroundsportslogo.jpg';
+import Carousel1 from '../assets/images/ugLogoWood.jpg';
 import Carousel2 from '../assets/images/undergroundsportslogo.webp';
 import Carousel3 from '../assets/images/carousel-img3.webp';
 
@@ -161,10 +161,10 @@ const Main = () => {
       </motion.div>
 
       {/* Call to Action Section */}
-      <motion.div className="bg-[#7A2525] text-white py-16 flex flex-col items-center justify-center" variants={scaleUp}>
+      <motion.div className="bg-[#a22727] text-white py-16 flex flex-col items-center justify-center" variants={scaleUp}>
         <h2 className="text-3xl font-bold mb-6">Ready to Transform?</h2>
         <p className="mb-6">Join our community and start your transformation today.</p>
-        <motion.a href="/SignUp" className="inline-block bg-white text-[#7A2525] px-8 py-3 rounded-lg text-lg font-semibold shadow-lg" variants={buttonVariants} whileHover="hover">Get Started</motion.a>
+        <motion.a href="/SignUp" className="inline-block bg-white text-[#a22727] px-8 py-3 rounded-lg text-lg font-semibold shadow-lg" variants={buttonVariants} whileHover="hover">Get Started</motion.a>
       </motion.div>
 
       {/* Social Media Links */}
