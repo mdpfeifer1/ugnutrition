@@ -77,15 +77,14 @@ function NavTabs() {
         </li>
 
 
-        <li className="nav-item mt-1">
-          <Link
-           
-            className={`hover:text-gray-300 ${currentPage === '/Cart' ? 'font-bold' : ''} `}
-          >
-           Cart
-
-          </Link>
-        </li>
+        <li className="nav-item mt-1 ">
+  <Link
+    to="/Cart" // Fix: add the correct route
+    className={`hover:text-gray-300 ${currentPage === '/Cart' ? 'font-bold' : ''} `}
+  >
+    Cart
+  </Link>
+</li>
       </ul>
     </section>
   );
