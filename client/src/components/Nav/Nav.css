@@ -1,0 +1,25 @@
+.logo {
+    position: relative;
+  }
+  .logo-jaw {
+ 
+    position: absolute;
+    top: 47px;
+    left: 45px;
+    max-width: 17px;
+
+  }
+  .logo-barbell {
+    position: absolute;
+    top: 47px;
+    left: 14px;
+    max-width: 80px;
+  }
+
+#mainLogo {
+min-height: 100px;
+max-height: 100px;
+}
+
+
+  
