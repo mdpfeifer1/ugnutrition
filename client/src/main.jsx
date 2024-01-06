@@ -6,10 +6,11 @@ import App from './App.jsx';
 import ProductsPage from './pages/ProductsPage.jsx';
 import Detail from './pages/Detail.jsx';
 import NoMatch from './pages/NoMatch.jsx';
-import Login from './pages/Login.jsx';
-import Signup from './pages/Signup.jsx';
+// import Login from './pages/Login.jsx';
+// import Signup from './pages/Signup.jsx';
 import Success from './pages/Success.jsx';
 import OrderHistory from './pages/OrderHistory.jsx';
+import Menu from './pages/Menu.jsx'
 
 const router = createBrowserRouter([
   {
@@ -24,14 +25,16 @@ const router = createBrowserRouter([
       {
         path: '/ProductsPage',
         element: <ProductsPage />
-      }, {
-        path: '/login',
-        element: <Login />
-      }, {
-        path: '/signup',
-        element: <Signup />
-      }, {
-        path: '/success',
+      }, 
+      {
+        path: '/menu',
+        element: <Menu />
+      },
+      //  {
+      //   path: '/signup',
+      //   element: <Signup />
+      // }, {
+       { path: '/success',
         element: <Success />
       }, {
         path: '/orderHistory',
