@@ -180,7 +180,7 @@ const Menu = () => {
 
   return (
     
-    <div className="min-h-screen bg-gray-100 text-white">
+    <div className="min-h-screen bg-white text-white">
  <div className="hero-section relative min-h-80 flex flex-col justify-center items-center bg-white overflow-hidden">
   <div className="menuImg parallax-background absolute top-0 left-0 w-full h-full z-10" style={{ backgroundImage: 'url(../src/assets/images/proteinBg.webp)' }}></div>
   <h1 className="hero-logo text-6xl font-bold text-black z-10 ">Underground Sports Nutrition</h1>
@@ -199,7 +199,7 @@ const Menu = () => {
 
 </div>
 
-      <div className="container mx-auto p-5">
+      <div className="  py-5 border-b-4 border-white">
         {menuData.map((section, index) => (
           <MenuSection key={index} section={section} />
         ))}
@@ -211,8 +211,8 @@ const Menu = () => {
 
 const MenuSection = ({ section }) => {
   return (
-    <div className="menu-section mb-12">
-      <h2 className="text-4xl font-bold text-center mb-4 text-black">{section.title}</h2>
+    <div className="menu-section mb-12 ">
+      <h2 className="text-4xl font-bold text-center mb-4  bg-[#a22727] text-white">{section.title}</h2>
       <p className="text-2xl text-center mb-8 text-black">{section.items[0].price}</p> 
       <div className="flex flex-wrap justify-center items-stretch gap-6">
         {section.items.map((item, index) => (
@@ -244,7 +244,7 @@ const MenuItem = ({ item }) => {
         <div className={`card-front relative cursor-pointer flex flex-col justify-between bg-white rounded-lg shadow-lg overflow-hidden ${cardHeight}`} onClick={handleClick}>
           <img src={item.image || "../src/assets/images/proteinShake.webp"} alt={item.name} className="w-full object-cover" style={{ height: '60%' }} />
           <div className="p-4 bg-white">
-            <h3 className="text-2xl font-semibold text-center mb-3 text-black">{item.name}</h3>
+            <h3 className="text-2xl font-semibold text-center mb-5 text-black">{item.name}</h3>
           </div>
         </div>
         <div className={`card-back p-4 bg-[#a22727] rounded-lg shadow-lg text-white flex flex-col justify-between ${cardHeight}`} onClick={handleClick}>
