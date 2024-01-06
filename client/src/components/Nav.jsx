@@ -34,8 +34,8 @@ function NavTabs() {
 
         <li className="nav-item">
           <Link
-            to="/ProductsPage"
-            className={`hover:text-gray-300 ${currentPage === '/ProductsPage' ? 'font-bold' : ''}`}
+            to="/Menu"
+            className={`hover:text-gray-300 ${currentPage === '/Menu' ? 'font-bold' : ''}`}
           >
             Menu
           </Link>
@@ -51,31 +51,12 @@ function NavTabs() {
         </li>
 
 
-        <li className="nav-item">
-          {/* {loggedIn ? (
-            <button onClick={logout} className='hover:text-gray-300'>
-              Logout
-            </button>
-          ) : ( */}
-            <Link
-              to="/Login"
-              className={`hover:text-gray-300 ${currentPage === '/Login' ? 'font-bold' : ''}`}
-            >
-              Login/Sign Up
-            </Link>
-          {/* )} */}
-        </li>
-
         <li className="nav-item mt-1">
           <Link
            
-            className={`hover:text-gray-300 ${currentPage === '/Checkout' ? 'font-bold' : ''} flex items-center`}
+            className={`hover:text-gray-300 ${currentPage === '/Cart' ? 'font-bold' : ''} `}
           >
-
-            <FaShoppingCart  onClick={() => {
-              console.log('you clicked me');
-              dispatch({ type: TOGGLE_CART });
-            }} className="text-2xl" /> {/* Adjust the size with text-2xl or other utility classes */}
+           Cart
 
           </Link>
         </li>

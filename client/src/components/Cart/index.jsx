@@ -8,7 +8,7 @@ import Auth from '../../utils/auth';
 import { useStoreContext } from '../../utils/GlobalState';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import '../../index.css';
-import { FaShoppingCart } from 'react-icons/fa';
+// import { FaShoppingCart } from 'react-icons/fa';
 // stripePromise returns a promise with the stripe object as soon as the Stripe package loads
 const stripePromise = loadStripe('pk_test_51OKm3RHvHOESh9EaSOeeergVemhtP0R5iWKqaI0bINW1hj4eAtmQMgx9O27QZsiGNLWiRYeIUg8HqRQCG7es2yDJ001ZzJqEp9');
 
