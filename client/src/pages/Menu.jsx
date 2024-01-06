@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ReactCardFlip from 'react-card-flip';
+
 gsap.registerPlugin(ScrollTrigger);
 import "./Menu.css"
 
@@ -183,11 +183,12 @@ const Menu = () => {
     <div className="min-h-screen bg-white text-white">
  <div className="hero-section relative min-h-80 flex flex-col justify-center items-center bg-white overflow-hidden">
   <div className="menuImg parallax-background absolute top-0 left-0 w-full h-full z-10" style={{ backgroundImage: 'url(../src/assets/images/proteinBg.webp)' }}></div>
-  <h1 className="hero-logo text-6xl font-bold text-black z-10 ">Underground Sports Nutrition</h1>
+  <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black z-10 text-center">Underground Sports Nutrition</h1>
+
   <a
   href="../src/assets/images/MenuFull.pdf" // URL to your online PDF file
   download="UndergroundSportsNutritionMenu.pdf" // Suggested name for the downloaded file
-  className="hero-cta mt-5 bg-accent hover:bg-accent-hover text-black font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 z-10 text-2xl"
+  className="hero-cta mt-5 bg-accent hover:bg-accent-hover  py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 z-10  bg-white border border-gray-500 text-lg md:text-xl lg:text-xl xl:text-xl font-bold text-black"
 >
   Download Menu
 </a>
@@ -211,8 +212,8 @@ const Menu = () => {
 
 const MenuSection = ({ section }) => {
   return (
-    <div className="menu-section mb-12 ">
-      <h2 className="text-4xl font-bold text-center mb-4  bg-[#a22727] text-white">{section.title}</h2>
+    <div className="menu-section mb-12 p-2">
+      <h2 className="text-4xl font-bold text-center mb-4 bg-[#a22727] text-white">{section.title}</h2>
       <p className="text-2xl text-center mb-8 text-black">{section.items[0].price}</p> 
       <div className="flex flex-wrap justify-center items-stretch gap-6">
         {section.items.map((item, index) => (
@@ -227,39 +228,20 @@ const MenuSection = ({ section }) => {
 
 
 
+
 const MenuItem = ({ item }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-  const cardHeight = 'h-64'; // Example fixed height for uniformity
-  
-  const handleClick = () => {
-    setIsFlipped(!isFlipped);
-  };
-
-  // Adjust the width for each card so that there are three per row, and allow for automatic margins
-  const cardWidth = 'md:w-1/4'; // This ensures that each card takes up one-third of the width of the container
-
+  // Set a minimum height for uniformity
+  const minHeight = 'h-24'; // Example minimum height, adjust as needed
+const minWidth = 'w-48';
   return (
-    <div className={`${cardWidth} px-2 mb-6`}> {/* px-2 for gutter spacing, mb-6 for margin bottom */}
-      <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal" containerStyle={{ width: '100%', height: '100%' }}>
-        <div className={`card-front relative cursor-pointer flex flex-col justify-between bg-white rounded-lg shadow-lg overflow-hidden ${cardHeight}`} onClick={handleClick}>
-          <img src={item.image || "../src/assets/images/proteinShake.webp"} alt={item.name} className="w-full object-cover" style={{ height: '60%' }} />
-          <div className="p-4 bg-white">
-            <h3 className="text-2xl font-semibold text-center mb-5 text-black">{item.name}</h3>
-          </div>
-        </div>
-        <div className={`card-back p-4 bg-[#a22727] rounded-lg shadow-lg text-white flex flex-col justify-between ${cardHeight}`} onClick={handleClick}>
-          <div>
-            <h3 className="text-2xl font-semibold mb-2">{item.name} - Ingredients</h3>
-            <p>{item.description}</p> {/* Now holds the ingredients */}
-          </div>
-          <div className="text-center mt-4">
-         
-          </div>
-        </div>
-      </ReactCardFlip>
+    <div className={` rounded-lg p-4 bg-white text-center hover:shadow-lg transition-shadow duration-300 mb-4 ${minHeight,minWidth} overflow-auto hover:-translate-y-1`}>
+      <h3 className="text-xl font-semibold text-[#a22727] ">{item.name}</h3>
+      <p className="text-black">{item.description}</p>
     </div>
   );
 };
+
+
 
 
 
