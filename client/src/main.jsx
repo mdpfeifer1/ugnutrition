@@ -11,6 +11,7 @@ import NoMatch from './pages/NoMatch.jsx';
 import Success from './pages/Success.jsx';
 import OrderHistory from './pages/OrderHistory.jsx';
 import Menu from './pages/Menu.jsx'
+import Cart from './components/Cart'
 
 const router = createBrowserRouter([
   {
@@ -27,13 +28,13 @@ const router = createBrowserRouter([
         element: <ProductsPage />
       }, 
       {
-        path: '/menu',
+        path: '/Menu',
         element: <Menu />
       },
-      //  {
-      //   path: '/signup',
-      //   element: <Signup />
-      // }, {
+       {
+        path: '/Cart',
+        element: <Cart />
+      }, 
        { path: '/success',
         element: <Success />
       }, {
