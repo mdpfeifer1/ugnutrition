@@ -42,12 +42,27 @@ function CategoryMenu() {
   };
 
 return (
-  <div className='flex flex-col items-center justify-center'>
-    <h2 className='my-6 text-center text-4xl font-serif'>Choose a Category:</h2>
+  <div className='flex flex-col items-center justify-center mt-2'>
+    {/* <h2 className='my-6 text-center text-4xl font-serif'>Choose a Category:</h2> */}
+    <div className='flex items-center space-x-4'>
+    <button
+      className=' font-serif mt-2 text-xl font-semibold px-4 border-4 border-black bg-[#a22727] text-white  rounded-md '
+      onClick={() => { handleClick('') }}
+    >
+      Apparel
+    </button>
+    <button
+      className=' font-serif mt-2 text-xl font-semibold px-4 border-4 border-black bg-[#a22727] text-white  rounded-md '
+      onClick={() => { handleClick('') }}
+    >
+      Supplements
+    </button>
+    </div>
+
     <div className="flex flex-wrap justify-center">
       {categories.map((item) => (
         <button
-          className='px-4 font-serif mb-2 mx-2 bg-[--Navy] text-white rounded-md'
+          className='px-4 font-serif mb-2 mt-2 mx-2 border-4 border-black bg-[#a22727] text-white rounded-md'
           key={item._id}
           onClick={() => {
             handleClick(item._id);
@@ -57,12 +72,7 @@ return (
         </button>
       ))}
     </div>
-    <button
-      className=' font-serif mt-2 text-xl font-semibold px-4 bg-[--Navy] text-white  rounded-md'
-      onClick={() => { handleClick('') }}
-    >
-      All
-    </button>
+   
   </div>
 );
 
