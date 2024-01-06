@@ -5,7 +5,12 @@
 :root {
     --Navy: #011638;
     --Gold: #ecd398;
+
   }
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
 
   /* .cart {
     position: fixed;
@@ -101,3 +106,5 @@
   z-index: 1000;
   background-color: white;
 }
+
+

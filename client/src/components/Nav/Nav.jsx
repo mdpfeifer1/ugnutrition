@@ -32,14 +32,14 @@ function NavTabs() {
   const currentPage = useLocation().pathname;
   const [state, dispatch] = useStoreContext();
   return (
-    <section className="bg-[#000000] flex justify-between items-center text-white mb-1">
-      <div className="logo">
+    <section className="bg-[#000000] flex justify-between items-center text-white px-4 md:px-8 lg:px-12 xl:px-16">
+      <div className="logo flex-shrink-0">
         <img id="mainLogo" className='max-h-[100px] max-w-[200px]' src={mainLogo} alt="Main Logo" />
         <img id="logoJaw" className='logo-jaw' src={Jaw} alt="Jaw" />
         <img id="logoBarbell" className='logo-barbell' src={Barbell} alt="Barbell" />
       </div>
 
-      <ul className="flex items-center space-x-12 mr-5">
+      <ul className="flex items-center justify-center flex-grow space-x-4 md:space-x-6 lg:space-x-12 lg:justify-end">
         <li className="nav-item">
           <Link
             to="/"
