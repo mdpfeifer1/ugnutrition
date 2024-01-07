@@ -55,7 +55,7 @@ function ProductItemProdPage(item) {
           </span>
         </h4>
   
-        <div className="mb-4" style={{ marginTop: '-110px' }}>
+        <div className="mb-4" style={{ marginTop: '-80px' }}>
           <img
             className="w-full h-40 object-cover object-center"
             src={image}
