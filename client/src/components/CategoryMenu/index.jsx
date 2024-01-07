@@ -63,7 +63,7 @@ return (
     <div className="flex flex-wrap justify-center">
       {categories.map((item) => (
         <button
-          className='px-4 font-serif mb-2 mt-2 mx-2 border-4 border-black bg-[#a22727] text-white rounded-md'
+          className='px-4 font-serif mb-2 mt-2 mx-2  border-black hover:border-b hover:border-gray-600'
           key={item._id}
           onClick={() => {
             handleClick(item._id);
