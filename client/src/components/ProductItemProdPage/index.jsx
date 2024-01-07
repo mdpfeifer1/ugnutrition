@@ -47,7 +47,7 @@ function ProductItemProdPage(item) {
   return (
     
     <div className="mt-5">
-      <div key={_id} className="bg-[#a22727] p-6 rounded-lg shadow-md border-4 border-black  flex-col justify-center max-w-[300px] mx-2 my-8 relative">
+      <div key={_id} className="p-6 shadow-md flex-col justify-center max-w-[300px] mx-2 my-8 relative">
         <h4 className="text-black pb-3 h-16 overflow-hidden">
           {description} <br />
           <span style={{ fontSize: '1rem' }}>
@@ -57,19 +57,19 @@ function ProductItemProdPage(item) {
   
         <div className="mb-4" style={{ marginTop: '-110px' }}>
           <img
-            className="border-4 border-[--black] w-full h-40 object-cover object-center rounded-xl"
+            className="w-full h-40 object-cover object-center"
             src={image}
             alt={`Product ${_id}`}
           />
         </div>
   
-        <h3 className="font-bold text-lg text-center font-serif text-white">{name}</h3>
-      <p className="text-center text-white">{details}</p>
+        <h3 className="font-bold text-lg text-center font-serif text-black">{name}</h3>
+      <p className="text-center text-black">{details}</p>
 
-      <div className="flex justify-center items-center mt-2 text-white font-serif">
+      <div className="flex justify-center items-center mt-2 text-black font-serif">
         <span className="mr-2">${price}</span>
         <Link
-          className="btn btn-primary text-white btn-squared underline max-w-[90px]"
+          className="btn btn-primary text-black btn-squared underline max-w-[90px]"
           to={`/products/${_id}`}
         >
           View Details
