@@ -1,18 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { useStoreContext } from '../../utils/GlobalState';
-import {
-  UPDATE_CATEGORIES,
-  UPDATE_CURRENT_CATEGORY,
-} from '../../utils/actions';
+import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../../utils/actions';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 
 function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
+  const [activeCategory, setActiveCategory] = useState(null);
 
   const { categories } = state;
-
   const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
 
   useEffect(() => {
@@ -34,50 +31,52 @@ function CategoryMenu() {
     }
   }, [categoryData, loading, dispatch]);
 
-  const handleClick = (id) => {
+  const handleMainCategoryClick = (category) => {
+    setActiveCategory(category._id);
     dispatch({
       type: UPDATE_CURRENT_CATEGORY,
-      currentCategory: id,
+      currentCategory: category._id,
     });
   };
 
-return (
+  const handleSubCategoryClick = (subcategoryId) => {
+    dispatch({
+      type: UPDATE_CURRENT_CATEGORY,
+      currentCategory: subcategoryId,
+    });
+  };
 
-  <div className='flex flex-col items-center justify-center mt-2'>
-    <h2 className='my-6 text- text-4xl font-sedgwick'>Products</h2>
-    <div className='flex items-center space-x-4'>
-    <button
-      className='font-philosopher mt-2 text-xl font-semibold px-4 border-black hover:border-b hover:border-gray-600'
-      onClick={() => { handleClick('') }}
-    >
-      Apparel
-    </button>
-    <button
-      className='font- mt-2 text-xl font-semibold px-4 border-black hover:border-b hover:border-gray-600'
-      onClick={() => { handleClick('') }}
-    >
-      Supplements
-    </button>
+  return (
+    <div className='flex flex-col items-center justify-center mt-2'>
+      <h2 className='my-6 text-4xl font-sedgwick'>Products</h2>
+      <div className="flex flex-wrap justify-center">
+        {categories.map((category) => (
+          <div key={category._id}>
+            <button
+              className='px-4 font-serif mb-2 mt-2 mx-2 border-black focus:border-b focus:border-gray-600'
+              onClick={() => handleMainCategoryClick(category)}
+            >
+              {category.name}
+            </button>
+            {activeCategory === category._id && category.subcategories && category.subcategories.length > 0 && (
+              <div className="flex justify-center">
+                {category.subcategories.map((subcat) => (
+                  <button
+                    className='px-4 font-serif mb-2 mt-2 mx-2 border-black focus:border-b focus:border-gray-600'
+                    key={subcat._id}
+                    onClick={() => handleSubCategoryClick(subcat._id)}
+                  >
+                    {subcat.name}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
-
-    <div className="flex flex-wrap justify-center">
-      {categories.map((item) => (
-        <button
-          className='px-4 font-serif mb-2 mt-2 mx-2  border-black hover:border-b hover:border-gray-600'
-          key={item._id}
-          onClick={() => {
-            handleClick(item._id);
-          }}
-        >
-          {item.name}
-        </button>
-      ))}
-    </div>
-   
-  </div>
-);
-
-  
+  );
 }
 
 export default CategoryMenu;
+

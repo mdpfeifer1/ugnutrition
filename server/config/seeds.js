@@ -8,11 +8,22 @@ db.once('open', async () => {
   await cleanDB('User', 'users');
 
   const categories = await Category.insertMany([
-    { name: 'Computers' },
-    { name: 'Monitors' },
-    { name: 'Cables' },
-    { name: 'Accessories'},
-    { name: 'Smart Products'},
+    { name: 'Apparel' },
+    { name: 'Supplements' },
+ 
+  ]);
+
+  const subCategoriesApparel = await Category.insertMany([
+    { name: 'Womens' },
+    { name: 'Mens' },
+ 
+  ]);
+
+  const subCategoriesSupplements = await Category.insertMany([
+    { name: 'Pre-workout' },
+    { name: 'Vitamins' },
+    { name: 'Pro-Hormone'}
+ 
   ]);
 
   console.log('categories seeded');
@@ -28,6 +39,7 @@ db.once('open', async () => {
       price: 329.99,
       quantity: 100,
       category: categories[0]._id,
+      subCategory: subCategoriesApparel[1]._id,
     },
     {
       details: 'IMac M3 24inch',
@@ -38,7 +50,8 @@ db.once('open', async () => {
       price: 645.00,
       quantity: 100,
       category: categories[0]._id,
-    }, 
+      subCategory: subCategoriesApparel[0]._id,
+    },
     {
       details: 'VertexEdge',
       color: 'Silver',
@@ -48,6 +61,7 @@ db.once('open', async () => {
       price: 145.00,
       quantity: 100,
       category: categories[0]._id,
+      subCategory: subCategoriesApparel[1]._id,
     }, 
     {
       details: 'QuantumByte',
@@ -58,6 +72,7 @@ db.once('open', async () => {
       price: 29.99,
       quantity: 100,
       category: categories[1]._id,
+      subCategory: subCategoriesSupplements[2]._id,
     },
     {
       details: 'NovaFusion',
@@ -68,6 +83,7 @@ db.once('open', async () => {
       price: 49.99,
       quantity: 100,
       category: categories[1]._id,
+      subCategory: subCategoriesSupplements[1]._id,
     },
     {
       details: 'VertexEdge',
@@ -78,6 +94,7 @@ db.once('open', async () => {
       price: 79.99,
       quantity: 100,
       category: categories[1]._id,
+      subCategory: subCategoriesSupplements[0]._id,
     },
     {
       details: 'QuantumByte',
@@ -87,7 +104,8 @@ db.once('open', async () => {
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWT0yM9VnOHm2NJHn7U5vlPA6xq3_IOe82p0mQH-Lj3uuX9OcXTPmWVu36-FHaUPDMK0I&usqp=CAU',
       price: 9.99,
       quantity: 100,
-      category: categories[2]._id,
+      category: categories[0]._id,
+      subCategory: subCategoriesApparel[0]._id,
     },
     {
       details: 'Netstrand HDMI',
@@ -97,7 +115,8 @@ db.once('open', async () => {
       image: 'https://media.istockphoto.com/photos/-picture-id182461665?k=6&m=182461665&s=612x612&w=0&h=dQBkxuHcO2iWVKIWOye0kOjJ-S-2SShzngcx7OCaAHY=',
       price: 9.99,
       quantity: 100,
-      category: categories[2]._id,
+      category: categories[0]._id,
+      subCategory: subCategoriesApparel[1]._id,
     },
     {
       details: 'VeeTop Ethernet',
@@ -107,7 +126,8 @@ db.once('open', async () => {
       image: 'https://i5.walmartimages.com/asr/4b9aedc4-19ad-4f03-b0b4-dcea0cba812d.7d42bece64c32bd8a414e8c1434d14b6.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff',
       price: 9.99,
       quantity: 100,
-      category: categories[2]._id,
+      category: categories[0]._id,
+      subCategory: subCategoriesApparel[0]._id,
     },
     {
       details: 'QuantumByte',
@@ -117,7 +137,8 @@ db.once('open', async () => {
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnxpExP3Vx8A60QC0mALEY5_FRdzvA-5Jxt9peyRjSyOtro59_FTjCQbH1KHUERh2qYlQ&usqp=CAU',
       price: 39.99,
       quantity: 100,
-      category: categories[3]._id,
+      category: categories[1]._id,
+      subCategory: subCategoriesSupplements[0]._id,
     },
     {
       details: 'NovaFusion',
@@ -127,7 +148,8 @@ db.once('open', async () => {
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ29Vos_uaDYaSbrRrP5T9V3beIuBKmU3Us39T9iA_qKbkMAU-jt6tHtaJYoXKMfIiokCM&usqp=CAU',
       price: 10.99,
       quantity: 100,
-      category: categories[3]._id,
+      category: categories[0]._id,
+      subCategory: subCategoriesApparel[1]._id,
     },
     {
       details: 'VertexEdge',
@@ -137,7 +159,8 @@ db.once('open', async () => {
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThtEesNie7X_Y9XM5fH6JZnPqfSZBTngMciw&usqp=CAU',
       price: 59.99,
       quantity: 100,
-      category: categories[3]._id,
+      category: categories[0]._id,
+      subCategory: subCategoriesApparel[1]._id,
     },
     {
       details: 'QuantumByte',
@@ -147,7 +170,8 @@ db.once('open', async () => {
       image: 'https://media.istockphoto.com/photos/smart-watch-picture-id486993228?k=6&m=486993228&s=612x612&w=0&h=8Js5Aot9Ift4HJXp6tGJJKTOX7nQDb6OfRYkqlPuyBQ=',
       price: 159.99,
       quantity: 100,
-      category: categories[4]._id,
+      category: categories[0]._id,
+      subCategory: subCategoriesApparel[0]._id,
     },
     {
       details: 'NovaFusion',
@@ -157,7 +181,8 @@ db.once('open', async () => {
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9WuWhrH-hxwsA2V4OGiZ5I9QR8AhTqAvK6A&usqp=CAU',
       price: 159.99,
       quantity: 100,
-      category: categories[4]._id,
+      category: categories[1]._id,
+      subCategory: subCategoriesSupplements[2]._id,
     },
     {
       details: 'VertexEdge',
@@ -167,7 +192,9 @@ db.once('open', async () => {
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-hd7T28l70fv6Ygid5Ib8ddraRvOTlg2MYg&usqp=CAU',
       price: 1259.99,
       quantity: 100,
-      category: categories[4]._id,
+      category: categories[0]._id,
+      subCategory: subCategoriesApparel[0]._id,
+
     },
   ]);
 
