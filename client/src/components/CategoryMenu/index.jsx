@@ -42,8 +42,9 @@ function CategoryMenu() {
   };
 
   return (
-    <div className='flex flex-wrap items-start justify-evenly mt-2'>
+    <div className='flex flex-wrap items-start justify-evenly mt-2 border-b-2 border-[#a22727]'>
       {/* Left side with "Products" */}
+      
       <div className='md:mr-96'>
         <h1 className='my-6 text-5xl font-sedgwick hidden md:block'>SHOP</h1>
       </div>
