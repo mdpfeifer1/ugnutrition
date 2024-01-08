@@ -21,5 +21,42 @@ min-height: 100px;
 max-height: 100px;
 }
 
+.nav-item a {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav-item a:hover {
+  transform: scale(1.05);
+  color: white; /* Or any highlight color of your choice */
+}
+
+.nav-item a {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #a22727; /* Or any highlight color of your choice */
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-item a:hover::after {
+  transform: scaleX(1);
+}
 
   
+.nav-item button {
+  perspective: 1000px;
+  transition: transform 0.5s;
+}
+
+.nav-item button:hover {
+  transform: rotateY(180deg);
+}

@@ -191,7 +191,7 @@ const Menu = () => {
     <div className="min-h-screen bg-white text-white">
       <div className="hero-section relative min-h-80 flex flex-col justify-center items-center bg-white overflow-hidden">
         <div className="menuImg parallax-background absolute top-0 left-0 w-full h-full z-10" style={{ backgroundImage: 'url(../src/assets/images/proteinBg.webp)' }}></div>
-        <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black z-10 text-center">Underground Sports Nutrition</h1>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-black z-10 text-center font-sedgwick mb-5">Underground Sports Nutrition</h1>
 
         <a
           href="../src/assets/images/MenuFull.pdf" // URL to your online PDF file
@@ -221,7 +221,7 @@ const Menu = () => {
 const MenuSection = ({ section }) => {
   return (
     <div className="menu-section mb-12 p-2">
-      <h2 className="text-4xl pb-2 font-bold text-center mb-4 bg-[#d22d2d] text-white">{section.title}</h2>
+      <h2 className="text-4xl pt-1 font-bold text-center mb-4 bg-[#d22d2d] text-white font-sedgwick">{section.title}</h2>
       <p className="text-2xl text-center mb-2 text-black">{section.items[0].price}</p>
       <div className="flex flex-wrap justify-center items-stretch gap-6">
         {section.items.map((item, index) => (
