@@ -98,13 +98,13 @@ function Detail() {
 
               <div className="mt-4 flex">
                 <button
-                  className="bg-indigo-500 text-white px-4 py-2 rounded-md mr-4"
+                  className="bg-[#a22727] text-white px-4 py-2 rounded-md mr-4"
                   onClick={addToCart}
                 >
                   Add to Cart
                 </button>
                 <button
-                  className="text-indigo-500 hover:text-indigo-400"
+                  className="bg-[#a22727] text-white px-4 py-2 rounded-md mr-4:"
                   disabled={!cart.find((p) => p._id === currentProduct._id)}
                   onClick={removeFromCart}
                 >

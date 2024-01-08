@@ -77,7 +77,7 @@ if (error) { console.log(error);}
 
   return (
     <div className="cart">
-      <div className="close bg-[--Navy] text-center text-white m-2 cursor-pointer rounded-lg shadow-md shadow-gray-600" onClick={toggleCart}>
+      <div className="close bg-[#a22727] text-center text-white m-2 cursor-pointer rounded-lg shadow-md shadow-gray-600" onClick={toggleCart}>
         Close
       </div>
       <h2 className='text-center font-serif'>Shopping Cart</h2>
@@ -89,11 +89,11 @@ if (error) { console.log(error);}
 
           <div className="flex-row text-center">
             {/* Check to see if the user is logged in. If so render a button to check out */}
-            {Auth.loggedIn() ? (
+            {/* {Auth.loggedIn() ? (
               <button className='text-lg font-serif bg-[--Navy] text-white p-1 rounded-2xl mt-3' onClick={submitCheckout}>Checkout</button>
             ) : (
               <span>(log in to check out)</span>
-            )}
+            )} */}
             
           </div>
           <strong>Total: ${calculateTotal()}</strong>
