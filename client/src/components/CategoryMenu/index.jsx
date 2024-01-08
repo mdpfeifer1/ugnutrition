@@ -39,6 +39,7 @@ function CategoryMenu() {
     });
   };
 
+
   const handleSubCategoryClick = (subcategoryId) => {
     dispatch({
       type: UPDATE_CURRENT_CATEGORY,
@@ -72,6 +73,7 @@ function CategoryMenu() {
               </div>
             )}
           </div>
+
         ))}
       </div>
     </div>
