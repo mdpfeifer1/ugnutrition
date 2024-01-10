@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Make sure to import useHistory
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_CHECKOUT } from '../../utils/queries';
@@ -8,11 +9,11 @@ import Auth from '../../utils/auth';
 import { useStoreContext } from '../../utils/GlobalState';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import '../../index.css';
-// import { FaShoppingCart } from 'react-icons/fa';
-// stripePromise returns a promise with the stripe object as soon as the Stripe package loads
+
 const stripePromise = loadStripe('pk_test_51OKm3RHvHOESh9EaSOeeergVemhtP0R5iWKqaI0bINW1hj4eAtmQMgx9O27QZsiGNLWiRYeIUg8HqRQCG7es2yDJ001ZzJqEp9');
 
 const Cart = () => {
+  const navigate = useNavigate();
   const [state, dispatch] = useStoreContext();
   const [getCheckout, { data, error }] = useLazyQuery(QUERY_CHECKOUT);
 if (error) { console.log(error);}
@@ -60,43 +61,41 @@ if (error) { console.log(error);}
         products: [...state.cart],
       },
     });
+     // Redirect to the cart route after checkout
+     navigate('/cart'); // Replace '/cart' with the actual path to your cart route
   }
 
   if (!state.cartOpen) {
     return (
       <div className="cart-closed" 
-      // onClick={toggleCart}
+      onClick={toggleCart}
       >
-        {/* <FaShoppingCart className="text-2xl text-black" role='img' /> */}
+       
       </div>
     );
   }
 
-   {/* Adjust the size with text-2xl or other utility classes */}
-
-
   return (
-    <div className="cart">
-      <div className="close bg-[--Navy] text-center text-white m-2 cursor-pointer rounded-lg shadow-md shadow-gray-600" onClick={toggleCart}>
+    <div className="cart fixed top-0 right-0 border-4 border-black rounded-lg shadow-md shadow-gray-600 mr-3 max-w-[400px] overflow-y-auto">
+      <h2 className='text-center font-serif font-bold border-b-2 bg-gray-200'>Shopping Cart</h2>
+      <div className="close bg-[#a22727] text-center text-white m-2 cursor-pointer rounded-lg shadow-md shadow-gray-600" onClick={toggleCart}>
         Close
       </div>
-      <h2 className='text-center font-serif'>Shopping Cart</h2>
+  
       {state.cart.length ? (
         <div>
-          {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
-          ))}
-
-          <div className="flex-row text-center">
-            {/* Check to see if the user is logged in. If so render a button to check out */}
-            {Auth.loggedIn() ? (
-              <button className='text-lg font-serif bg-[--Navy] text-white p-1 rounded-2xl mt-3' onClick={submitCheckout}>Checkout</button>
-            ) : (
-              <span>(log in to check out)</span>
-            )}
-            
+          <div className='flex justify-center'>
+            {state.cart.map((item) => (
+              <CartItem key={item._id} item={item} />
+            ))}
           </div>
-          <strong>Total: ${calculateTotal()}</strong>
+  
+          <div className="flex-row text-center">
+            <button className='text-lg font-serif bg-[#a22727] text-white p-1 mt-3 cursor-pointer rounded-lg shadow-md shadow-gray-600 mb-2' onClick={submitCheckout}>Checkout</button>
+          </div>
+          <div className='text-center border-b-2 bg-gray-200'>
+            <strong>Total: ${calculateTotal()}</strong>
+          </div>
         </div>
       ) : (
         <h3>

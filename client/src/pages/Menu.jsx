@@ -190,7 +190,7 @@ const Menu = () => {
 
     <div className="min-h-screen bg-white text-white">
       <div className="hero-section relative min-h-80 flex flex-col justify-center items-center bg-white overflow-hidden">
-        <div className="menuImg parallax-background absolute top-0 left-0 w-full h-full z-10" style={{ backgroundImage: 'url(../src/assets/images/proteinBg.webp)' }}></div>
+        <div className="menuImg parallax-background absolute top-0 left-0 w-full h-full z-10" style={{ backgroundImage: 'url(../src/assets/images/acaiBowl.jpg)' }}></div>
         <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-black z-10 text-center font-sedgwick mb-5">Underground Sports Nutrition</h1>
 
         <a

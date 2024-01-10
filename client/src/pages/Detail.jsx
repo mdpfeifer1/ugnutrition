@@ -74,13 +74,14 @@ function Detail() {
   return (
     <>
       {currentProduct && cart ? (
-        <div className="container mx-auto mt-10">
-          <Link to="/" className="text-indigo-600 hover:text-indigo-500">
+        <div className="mx-auto mt-10 ml-10 flex flex-col justify-between">
+          
+          <Link to="/" className="bg-[#a22727] text-white max-w-24 px-4 py-2 rounded-md mr-4">
             Go Back
           </Link>
 
-          <div className="flex flex-col md:flex-row mt-8">
-            <div className="md:w-1/2">
+          <div className="flex flex-col md:flex-row mt-8 mb-8">
+            <div className="md:w-1/2 ml-48">
               <img
                 src={`${currentProduct.image}`}
                 alt={currentProduct.name}
@@ -88,23 +89,25 @@ function Detail() {
               />
             </div>
 
-            <div className="md:w-1/2 md:ml-8">
+            <div className="md:w-1/2 md:ml-8 mr-36">
+            {/* <div className="flex flex-col"> */}
               <h2 className="text-3xl font-bold mb-4">{currentProduct.name}</h2>
               <p className="text-gray-700 mb-6">{currentProduct.description}</p>
 
               <p className="text-lg text-gray-900">
                 <strong>Price:</strong> ${currentProduct.price}
               </p>
+              {/* </div> */}
 
               <div className="mt-4 flex">
                 <button
-                  className="bg-indigo-500 text-white px-4 py-2 rounded-md mr-4"
+                  className="bg-[#a22727] text-white px-4 py-2 rounded-md mr-4"
                   onClick={addToCart}
                 >
                   Add to Cart
                 </button>
                 <button
-                  className="text-indigo-500 hover:text-indigo-400"
+                  className="bg-[#a22727] text-white px-4 py-2 rounded-md mr-4:"
                   disabled={!cart.find((p) => p._id === currentProduct._id)}
                   onClick={removeFromCart}
                 >

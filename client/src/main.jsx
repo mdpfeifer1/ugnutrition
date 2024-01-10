@@ -12,6 +12,7 @@ import Success from './pages/Success.jsx';
 import OrderHistory from './pages/OrderHistory.jsx';
 import Menu from './pages/Menu.jsx'
 import Cart from './components/Cart'
+import CartPage from './pages/CartPage.jsx'
 
 const router = createBrowserRouter([
   {

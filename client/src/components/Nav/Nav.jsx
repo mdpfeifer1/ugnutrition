@@ -61,15 +61,15 @@ function NavTabs() {
         </li>
 
         <li className="nav-item">
-          <Link to="/ProductsPage" className={`hover:text-gray-300 ${currentPage === '/ProductsPage' ? 'font-bold' : ''}`}>Shop</Link>
+          <Link to="/ProductsPage" className={`hover:text-gray-300 ${currentPage === '/ProductsPage' ? 'font-bold' : ''}`}>Online Shop</Link>
         </li>
 
         <li className="nav-item">
-          <Link to="/Menu" className={`hover:text-gray-300 ${currentPage === '/Menu' ? 'font-bold' : ''}`}>Menu</Link>
+          <Link to="/ProductsPage" className={`hover:text-gray-300 ${currentPage === '/ProductsPage' ? 'font-bold' : ''}`}>In Store</Link>
         </li>
 
         <li className="nav-item">
-          <Link to="/ProductsPage" className={`hover:text-gray-300 ${currentPage === '/ProductsPage' ? 'font-bold' : 'text-white'}`}>In Store Only</Link>
+          <Link to="/Menu" className={`hover:text-gray-300 ${currentPage === '/Menu' ? 'font-bold' : 'text-white'}`}>Menu</Link>
         </li>
 
         <li className="nav-item mt-1 pr-5">
