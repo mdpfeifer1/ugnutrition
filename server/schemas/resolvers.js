@@ -6,7 +6,7 @@ const stripe = require('stripe')(process.env.STRIPE_KEY);
 const resolvers = {
   Query: {
     categories: async () => {
-      return await Category.find();
+      return await Category.find().populate('subcategories');
     },
     products: async (parent, { category, name, details, minPrice, maxPrice, sortMinPrice, sortMaxPrice }) => {
       const params = {};

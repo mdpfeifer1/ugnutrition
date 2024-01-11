@@ -1,8 +1,19 @@
 const typeDefs = `
-  type Category {
-    _id: ID
-    name: String
-  }
+type Category {
+  _id: ID
+  name: String
+  subcategories: [Subcategory] 
+}
+
+
+type Subcategory {
+  
+  _id: ID
+  name: String
+  category: Category
+  products: [Product]
+}
+
 
   type Product {
     _id: ID
@@ -14,6 +25,7 @@ const typeDefs = `
     quantity: Int
     price: Float
     category: Category
+    Subcategory: Subcategory
   }
 
   type Order {

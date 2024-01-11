@@ -1,48 +1,49 @@
 const db = require('./connection');
-const { User, Product, Category } = require('../models');
+const { User, Product, Category, SubCategory} = require('../models');
 const cleanDB = require('./cleanDB');
 
 db.once('open', async () => {
   await cleanDB('Category', 'categories');
   await cleanDB('Product', 'products');
+  await cleanDB('SubCategory', 'subcategories');
   await cleanDB('User', 'users');
 
   const categories = await Category.insertMany([
-
     { name: 'Apparel' },
     { name: 'Supplements' },
+    
  
   ]);
 
-  const subCategoriesApparel = await Category.insertMany([
-    { name: 'Womens' },
-    { name: 'Mens' },
- 
-  ]);
-
-  const subCategoriesSupplements = await Category.insertMany([
-    { name: 'Pre-workout' },
-    { name: 'Vitamins' },
-    { name: 'Pro-Hormone'}
- 
-
-  ]);
 
   console.log('categories seeded');
 
+  const subcategories = await SubCategory.insertMany([
+    {
+      name: 'Men', category: categories[0]._id
+    },
+    {
+      name: 'Women', category: categories[0]._id
+    },
+ 
+  ]);
+  console.log('mens products seeded');
+
+  const apparelCategory = categories[0];
+
+// Update 'Apparel' category with the 'Mens' subcategory
+await Category.findOneAndUpdate(
+    { _id: apparelCategory._id }, // find by ID
+    { $push: { subcategories: subcategories.map(m => m._id) } }, // push Mens subcategory IDs
+    { new: true } // return the updated document
+);
+
+console.log('Apparel category updated with Mens subcategory');
+
+
   const products = await Product.insertMany([
     
-    {
-      details: 'QuantumByte',
-      color: 'Silver',
-      name: 'Laptop',
-      description: 'A laptop computer',
-      image: 'https://t4.ftcdn.net/jpg/01/67/28/69/360_F_167286969_jAEAfUY47qQ1SHqf1SyqSYypOsl0fWYF.jpg',
-      price: 329.99,
-      quantity: 100,
-      category: categories[0]._id,
-      subCategory: subCategoriesApparel[1]._id,
-    },
+
     {
       details: 'IMac M3 24inch',
       color: 'White',
@@ -52,7 +53,7 @@ db.once('open', async () => {
       price: 645.00,
       quantity: 100,
       category: categories[0]._id,
-      subCategory: subCategoriesApparel[0]._id,
+      Subcategory: subcategories[1]._id,
     },
     {
       details: 'VertexEdge',
@@ -63,7 +64,7 @@ db.once('open', async () => {
       price: 145.00,
       quantity: 100,
       category: categories[0]._id,
-      subCategory: subCategoriesApparel[1]._id,
+      
     }, 
     {
       details: 'QuantumByte',
@@ -74,7 +75,7 @@ db.once('open', async () => {
       price: 29.99,
       quantity: 100,
       category: categories[1]._id,
-      subCategory: subCategoriesSupplements[2]._id,
+      
     },
     {
       details: 'NovaFusion',
@@ -85,7 +86,7 @@ db.once('open', async () => {
       price: 49.99,
       quantity: 100,
       category: categories[1]._id,
-      subCategory: subCategoriesSupplements[1]._id,
+      
     },
     {
       details: 'VertexEdge',
@@ -96,7 +97,7 @@ db.once('open', async () => {
       price: 79.99,
       quantity: 100,
       category: categories[1]._id,
-      subCategory: subCategoriesSupplements[0]._id,
+      
     },
     {
       details: 'QuantumByte',
@@ -107,7 +108,7 @@ db.once('open', async () => {
       price: 9.99,
       quantity: 100,
       category: categories[0]._id,
-      subCategory: subCategoriesApparel[0]._id,
+      
     },
     {
       details: 'Netstrand HDMI',
@@ -118,7 +119,7 @@ db.once('open', async () => {
       price: 9.99,
       quantity: 100,
       category: categories[0]._id,
-      subCategory: subCategoriesApparel[1]._id,
+      
     },
     {
       details: 'VeeTop Ethernet',
@@ -129,7 +130,7 @@ db.once('open', async () => {
       price: 9.99,
       quantity: 100,
       category: categories[0]._id,
-      subCategory: subCategoriesApparel[0]._id,
+      
     },
     {
       details: 'QuantumByte',
@@ -140,7 +141,7 @@ db.once('open', async () => {
       price: 39.99,
       quantity: 100,
       category: categories[1]._id,
-      subCategory: subCategoriesSupplements[0]._id,
+      
     },
     {
       details: 'NovaFusion',
@@ -151,7 +152,7 @@ db.once('open', async () => {
       price: 10.99,
       quantity: 100,
       category: categories[0]._id,
-      subCategory: subCategoriesApparel[1]._id,
+      
     },
     {
       details: 'VertexEdge',
@@ -162,7 +163,7 @@ db.once('open', async () => {
       price: 59.99,
       quantity: 100,
       category: categories[0]._id,
-      subCategory: subCategoriesApparel[1]._id,
+      
     },
     {
       details: 'QuantumByte',
@@ -173,7 +174,7 @@ db.once('open', async () => {
       price: 159.99,
       quantity: 100,
       category: categories[0]._id,
-      subCategory: subCategoriesApparel[0]._id,
+      
     },
     {
       details: 'NovaFusion',
@@ -184,7 +185,7 @@ db.once('open', async () => {
       price: 159.99,
       quantity: 100,
       category: categories[1]._id,
-      subCategory: subCategoriesSupplements[2]._id,
+      
     },
     {
       details: 'VertexEdge',
@@ -195,7 +196,7 @@ db.once('open', async () => {
       price: 1259.99,
       quantity: 100,
       category: categories[0]._id,
-      subCategory: subCategoriesApparel[0]._id,
+      
 
     },
   ]);

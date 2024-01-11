@@ -12,7 +12,10 @@ function ProductList() {
 
   const { currentCategory } = state;
 
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const { loading, data } = useQuery(QUERY_PRODUCTS, {
+    variables: { category: currentCategory },
+  });
+  
 
   useEffect(() => {
     if (data) {
